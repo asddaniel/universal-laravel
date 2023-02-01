@@ -1,28 +1,26 @@
 <?php
 
-namespace App\Models;
+namespace laravel\universal\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Relation extends Model
+class Colonne extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        "origine",
-        "destination"
-    ];
 
+    protected $fillable = [
+        "table_id",
+        "name"
+    ];
     /**
-     * Get the donnee associated with the Relation
+     * Get the table associated with the Colonne
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function donnee(): HasOne
+    public function table(): HasOne
     {
-        return $this->hasOne(Donnee::class, 'id', 'destination');
+        return $this->hasOne(Donnee::class, 'id', 'table_id');
     }
-
-
 }

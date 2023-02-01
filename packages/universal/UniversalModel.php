@@ -1,5 +1,5 @@
 <?php
-namespace packages\universal;
+namespace laravel\universal\universal;
 use App\Models\Colonne;
 use App\Models\Donnee;
 use App\Models\Enregistrement;
@@ -129,7 +129,7 @@ class UniversalModel{
     //    dd($rel);
         foreach ($data as $key => $value) {
              foreach ($rel as $cle => $valeur) {
-                
+
                 if($valeur->donnee->colonne->name==$key){
                     $valeur->donnee->update(["values"=>$value]);
                 }
